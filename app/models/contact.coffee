@@ -13,7 +13,7 @@ class Contact extends Spine.Model
 	# Persist with Local Storage
 	@extend Spine.Model.Local
 
-	@extend Spine.Model.Ajax.Methods
+	@extend Spine.Model.Ajax
 
 	Spine.Model.host = "http://localhost:3000"
 
@@ -44,7 +44,7 @@ class Contact extends Spine.Model
     return unless objects
     if typeof objects is 'string'
       objects = JSON.parse(objects)
-      value = @changeFields(num)
+      value = @changeFields(objects)
     if Spine.isArray(objects)
       (new @(value) for value in objects)
     else
@@ -52,6 +52,7 @@ class Contact extends Spine.Model
 
 
 	@changeFields: (serverObject) ->
+    console.log(serverObject)
     attrs = {}
     $.each serverObject, (key, val) =>
       attrs[@serverFields[key]] = val
