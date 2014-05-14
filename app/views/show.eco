@@ -1,0 +1,10 @@
+<header>
+	<a class="edit">Edit</a>
+	<a class="delete">Delete</a>
+</header>
+
+<div class="content">
+	<p><strong>Name: </strong><%= @name %></p>
+	<p><strong>Email: </strong><%= @email %></p>
+	<p><strong>Phone: </strong><%= @phone %></p>
+</div>

@@ -1,0 +1,158 @@
+@import './mixin'
+
+html
+	min-height:100%
+	position:relative
+
+body
+	color: #222
+	padding:0
+	margin:0
+	height:100%
+
+h2
+	text-align: center
+	font-size: 22px
+
+p
+	text-align: center
+	font-size: 16px
+
+.stack > *:not(.active) 
+	display:none
+
+header#mainHeader
+	display:inline-block
+	position: absolute
+	top:0
+	width:100%
+	height:80px
+	vbg-gradient(#ddddff, #ffffee)
+	text-align: center
+
+	h1
+		position: relative
+		top:5px
+		font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial"
+		font-weight: 100
+		z-index:2
+
+article#main
+	display:inline-block
+	width:100%
+	position:absolute
+	top:80px
+	bottom:0
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial"
+	font-weight: 100
+
+	.sidebar
+		display:inline-block
+		background:#eeeeee
+		width:19.75%
+		position:absolute
+		height:100%
+		overflow-y:auto
+
+		#searchbar
+			position:fixed
+			width:19.75%
+			font-size:1.1em
+			padding:0.3em
+			font-family:inherit
+			z-index:3
+
+		.items
+			position:relative
+			width:100%
+			top:40px
+			padding-bottom:60px
+			z-index:2
+
+		.item
+			border-bottom:1px solid #cccccc
+			padding:5px 5px 5px 10px
+
+			&:hover, &:active
+				background-color: #cccccc
+				cursor: pointer
+
+		.selected
+			@extends article#main .sidebar .item
+			background-color: #333333
+			color:#ffffff
+			
+			&:hover, &:active
+				background-color: #333333
+
+		footer
+			position:fixed
+			bottom:0
+			width:19.75%
+			z-index:3
+
+			button
+				width:100%
+				background-color:#4444ff
+				color:#ffffff
+				font-family:inherit
+				font-size:1.05em
+				padding:0.45em
+
+	.vdivide
+		display:inline-block
+		position:absolute
+		left:19.75%
+		width:0.5%
+		height:100%
+		background-color:#bbbbbb
+
+
+	.main
+		display:inline-block
+		position:absolute
+		left:20.25%
+		right:0
+		height:100%
+
+		.show
+			text-align:left
+
+			header
+				background-color:#eeeeee
+				border:1px solid #ccccff
+
+				.edit, .delete
+					display:inline-block
+					padding:5px
+					background-color:#5555ff
+					border:1px solid #999999
+					color:#ffffff
+
+					&:hover
+						background-color:#9999ff
+						cursor:pointer
+
+			.content p
+				text-align:left
+				margin-left:20px
+			
+		.edit
+			.save
+				display:inline-block
+				padding:5px
+				background-color:#9999ff
+				border:1px solid #9999ff
+				color:#ffffff
+				margin:20px 0 20px 20px
+
+				&:hover
+					background-color:#ffffff
+					color:#0000ff
+					cursor:pointer
+
+			form
+				margin:20px
+				
+
+

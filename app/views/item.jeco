@@ -1,0 +1,3 @@
+<div class="item" id="<%= @id %>">
+	<%- @name or "<i>No Name</i>" %>
+</div>

@@ -1,0 +1,22 @@
+<div class="content">
+	<form>
+		<label>
+			<span>Name</span>
+			<input id="nameField" type="text" name="name" value="<%= @name %>" autofocus>
+		</label>
+
+		<label>
+			<span>Email</span>
+			<input type="email" name="email" value="<%= @email %>" required>
+		</label>
+
+		<label>
+			<span>Phone</span>
+			<input type="text" name="phone" value="<%= @phone %>">
+		</label>
+	</form>
+</div>
+
+<footer>
+	<a class="save">Save</a>
+</footer>
