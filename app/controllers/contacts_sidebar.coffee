@@ -27,9 +27,9 @@ class Sidebar extends Spine.Controller
       selectFirst: true
 
     @list.bind 'change', @change
-    
+
+    # Fetch the list of contacts from the server
     Contact.fetch()
-    Contact.bind('refresh', @saveToLocal)
 
     @active (params) -> 
       @list.change(Contact.find(params.id))
@@ -53,10 +53,7 @@ class Sidebar extends Spine.Controller
     @navigate '/contacts', item.id
 
   create: ->
-    item = Contact.create()
     @navigate('/contacts/new')
 
-  saveToLocal: ->
-    Contact.saveLocal()
 
 module.exports = Sidebar

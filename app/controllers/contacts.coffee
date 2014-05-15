@@ -17,19 +17,15 @@ class Contacts extends Spine.Controller
 
 		@routes
 			'/contacts/:id/edit': (params) ->
+				params.page = "edit"
 				@sidebar.active(params)
 				@main.edit.active(params)
-			'/contacts/:id': (params) ->
-				@sidebar.active(params)
-				@main.show.active(params)
 			'/contacts/new': (params) ->
 				params.page = "new"
 				@sidebar.active(params)
 				@main.edit.active(params)
-			'/contacts/': (params) ->
-				@sidebar.active(params)
-				@main.show.active(params)
-			'/': (params) ->
+			'/contacts/:id': (params) ->
+				params.page = "show"
 				@sidebar.active(params)
 				@main.show.active(params)
 
@@ -37,7 +33,7 @@ class Contacts extends Spine.Controller
 
 		@append @sidebar, divide, @main
 
-		#Contact.fetch()
+		# Contact.fetch()
 
     
 module.exports = Contacts

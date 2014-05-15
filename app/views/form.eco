@@ -2,7 +2,7 @@
 	<form>
 		<label>
 			<span>Name</span>
-			<input id="nameField" type="text" name="name" value="<%= @name %>" autofocus>
+			<input id="nameField" type="text" name="name" value="<%= @name %>" autofocus required>
 		</label>
 
 		<label>
@@ -18,5 +18,6 @@
 </div>
 
 <footer>
-	<a class="save">Save</a>
+	<a class="save buttons">Save</a>
+	<a class="cancel buttons">Cancel</a>
 </footer>

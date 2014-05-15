@@ -11,16 +11,16 @@ class Contact extends Spine.Model
 
 
 	# Persist with Local Storage
-	@extend Spine.Model.Local
+	# @extend Spine.Model.Local
 
 	@extend Spine.Model.Ajax
 
 	Spine.Model.host = "http://localhost:3000"
 
-	#@url: "/contacts"
+	@url: "/contacts"
 
 	@serverFields =
-		'_id': 'serveid'
+		'_id': 'id'
 		'name': 'name'
 		'email': 'email'
 		'phone': 'phone'
@@ -41,29 +41,22 @@ class Contact extends Spine.Model
 				(new Contact(@changeFields(item))).save({ajax: false})
 
 	@fromJSON: (objects) ->
-    return unless objects
-    if typeof objects is 'string'
-      objects = JSON.parse(objects)
-      value = @changeFields(objects)
-    if Spine.isArray(objects)
-      (new @(value) for value in objects)
-    else
-      new @(objects)
+	    return unless objects
+	    if typeof objects is 'string'
+	      objects = JSON.parse(objects)
+	    if Spine.isArray(objects)
+	      for value in objects
+	        value = @changeFields(value)
+	        new @(value)
+	    else
+	      objects = @changeFields(objects)
+	      new @(objects)
 
 
 	@changeFields: (serverObject) ->
-    console.log(serverObject)
-    attrs = {}
-    $.each serverObject, (key, val) =>
-      attrs[@serverFields[key]] = val
-    attrs
-
-
-  @updateFromServer: (query) ->
-    $.get(@url(query or= "")).done (data) =>
-      data = [data] unless Spine.isArray(data)
-      $.each data, (index, item) =>
-        (new Contact(@changeFields(item))).save({ajax: false})
-
+    	attrs = {}
+    	$.each serverObject, (key, val) =>
+      		attrs[@serverFields[key]] = val
+    	attrs
   
 module.exports = Contact

@@ -38,6 +38,7 @@ class Edit extends Spine.Controller
 	events:
 		'submit form': 'submit'
 		'click .save': 'submit'
+		'click .cancel': 'cancel'
 
 	elements:
 		'form': 'form'
@@ -64,6 +65,9 @@ class Edit extends Spine.Controller
 			msg = @item.validate()
 			return alert(msg)
 		@navigate('/contacts', @item.id)
+
+	cancel: ->
+		@navigate('/contacts', Contact.first().id)
 	
 
 class Main extends Spine.Stack
