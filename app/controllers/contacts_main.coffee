@@ -59,11 +59,16 @@ class Edit extends Spine.Controller
 
 	submit: (e) ->
 		e.preventDefault()
-		if @item then @item.fromForm(@form)
-		else @item = Contact.fromForm(@form)
-		unless @item.save()
-			msg = @item.validate()
-			return alert(msg)
+		if @item
+			@item.fromForm(@form)
+			unless @item.save()
+				msg = @item.validate()
+				return alert(msg)
+		else 
+			@item = Contact.fromForm(@form)
+			unless @item.create()
+				msg = @item.validate()
+				return alert(msg)
 		@navigate('/contacts', @item.id)
 
 	cancel: ->

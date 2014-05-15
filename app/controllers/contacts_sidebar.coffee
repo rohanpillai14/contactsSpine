@@ -29,7 +29,9 @@ class Sidebar extends Spine.Controller
     @list.bind 'change', @change
 
     # Fetch the list of contacts from the server
-    Contact.fetch()
+    Contact.fetch({}, {clear:true})
+
+    console.dir(Contact)
 
     @active (params) -> 
       @list.change(Contact.find(params.id))
