@@ -4,7 +4,7 @@ List = require('spine/lib/list')
 $       = Spine.$
 
 class Sidebar extends Spine.Controller
-  className: 'sidebar'
+  className: 'sidebar col-xs-12 col-sm-4'
 
   elements:
     '.items': 'items'

@@ -7,7 +7,7 @@ Main = require('controllers/contacts_main')
 Sidebar = require('controllers/contacts_sidebar')
 
 class Contacts extends Spine.Controller
-	className: 'contacts'
+	className: 'contacts row'
 
 	constructor: ->
 		super

@@ -4,7 +4,7 @@ $		= Spine.$
     
 class Show extends Spine.Controller
 	# Set the HTML class
-	className: 'show'
+	className: 'show col-xs-12 col-sm-12'
 
 	events:
 		'click .edit' : 'edit'
@@ -19,6 +19,8 @@ class Show extends Spine.Controller
 
 	render: ->
 		# Render a template, replacing the controller's HTML
+		$(".edit").hide()
+		$(".show").show()
 		@html require('views/show')(@item)
 
 	change: (params) =>
@@ -40,7 +42,7 @@ class Show extends Spine.Controller
 			$(".main").css({"z-index": -1})
 
 class Edit extends Spine.Controller
-	className: 'edit'
+	className: 'edit col-xs-12 col-sm-12'
 
 	events:
 		'submit form': 'submit'
@@ -55,6 +57,8 @@ class Edit extends Spine.Controller
 		@active @change
 
 	render: () ->
+		$(".show").hide()
+		$(".edit").show()
 		@html require('views/form')(@item)
 		$("#nameField").focus()
 

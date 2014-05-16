@@ -35,35 +35,28 @@ article#main
 
 	.sidebar
 		position:absolute
-		top:0
+		top:50px
 		display:inline-block
-		background:#eeeeee
 		width:480px
 		height:100%
 		overflow-y:auto
 		overflow-x:hidden
-		border-right: 2px solid #777777
-
-		@media (max-width: 520px)
-			width:100%
+		padding-right:0
 
 		@media (min-width: 520px) and (max-width: 768px)
 			width: 40%
 
 		#searchbar
-			position:fixed
-			width:480px
+			position:absolute
+			width:465px
 			font-size:1.1em
 			padding:0.3em
 			font-family:inherit
 			z-index:3
 			border:1px solid #cccccc
 
-			@media (max-width: 520px)
-				width:100%
-
 			@media (min-width: 520px) and (max-width: 768px)
-				width: 40%
+				width: 100%
 
 		.items
 			position:relative
@@ -73,29 +66,26 @@ article#main
 			z-index:2
 			font-size: 1.1em
 
-			@media (max-width: 520px)
-				width:100%
-
 		.item
-			border-bottom:1px solid #cccccc
-			padding:5px 5px 5px 10px
+			padding:7px 5px 7px 10px
 
 			&:hover, &:active
-				background-color: #cccccc
+				background-color: #00a3ff
+				color:#ffffff
 				cursor: pointer
 
 		.selected
 			@extends article#main .sidebar .item
-			background-color: #333333
+			background-color: #00517f
 			color:#ffffff
 			
 			&:hover, &:active
-				background-color: #333333
+				background-color: #00517f
 
 		footer
 			position:fixed
 			bottom:0
-			width:480px
+			width:460px
 			z-index:3
 			
 
@@ -107,7 +97,7 @@ article#main
 
 			button
 				width:100%
-				background-color:#4444ff
+				background-color:#0082cc
 				color:#ffffff
 				padding:0.45em
 				font-family:inherit
@@ -117,12 +107,12 @@ article#main
 	.main
 		display:inline-block
 		position:absolute
-		top:0
+		top:50px
 		left:480px
 		right:0
 		height:100%
 		background-color: #ffffff
-		border-left:2px solid #777777
+		padding-left:0
 
 		@media (max-width: 520px)
 			left: 0
@@ -135,21 +125,21 @@ article#main
 			text-align:left
 
 			header
-				background-color:#eeeeee
+				background-color:#00517f
 				border:1px solid #ccccff
 
 				.buttons
 					display:inline-block
 					padding:5px
 					margin-left: 5px
-					background:#5555ff
-					border:1px solid #999999
+					background:#0082cc
+					border:1px solid #00a3ff
 					color:#ffffff
 					min-width:100px
 					text-align: center
 
 					&:hover
-						background-color:rgba(0,0,0,0.8)
+						background-color:#4cbeff
 						cursor:pointer
 
 					@media (max-width: 520px)
@@ -157,10 +147,6 @@ article#main
 
 					@media (min-width: 520px) and (max-width: 768px)
 						width: 40%
-
-
-				.delete
-					background-color: #ff5555
 
 				@media (min-width: 520px) 
 					.back, .separator
@@ -181,19 +167,21 @@ article#main
 					text-align:left
 					margin-left:20px
 					margin-top:20px
+
+					strong
+						color:#00517f
 			
 		.edit
 			.buttons
 				display:inline-block
 				padding:5px
-				background-color:#5555ff
+				background-color:#0082cc
 				border:1px solid #9999ff
 				color:#ffffff
 				margin:20px 0 20px 20px
 
 				&:hover
-					background-color:#ffffff
-					color:#0000ff
+					background-color:#4cbeff
 					cursor:pointer
 
 			form

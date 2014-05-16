@@ -1,8 +1,8 @@
 <header>
 	<a class="back buttons">Back</a>
 	<span class="separator"></span>
-	<a class="edit buttons">Edit</a>
-	<a class="delete buttons">Delete</a>
+	<a class="edit buttons"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
+	<a class="delete buttons"><span class="glyphicon glyphicon-trash"></span>  Delete</a>
 </header>
 
 <div class="content">

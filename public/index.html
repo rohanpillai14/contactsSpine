@@ -3,9 +3,11 @@
 <head>
   <meta charset=utf-8>
   <title>Spine App</title>
+  <link rel="stylesheet" href="/bootstrap.min.css" type="text/css" charset="utf-8">
   <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <script src="/application.js" charset="utf-8"></script>
+  <script src="/bootstrap.min.js" charset="utf-8"></script>
   <script charset="utf-8">
     var exports = this;
     jQuery(function(){
@@ -17,6 +19,13 @@
 </head>
 <body>
 	<p class='loadingText'>loading...</p>
-  <article id="main"></article>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">ContactsSpine</a>
+      </div>
+    </div>
+  </nav>
+  <article id="main" class=".container-fluid"></article>
 </body>
 </html>

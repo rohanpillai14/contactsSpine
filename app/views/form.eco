@@ -1,19 +1,21 @@
 <div class="content">
 	<form>
-		<label>
-			<span>Name</span>
-			<input id="nameField" type="text" name="name" value="<%= @name %>" autofocus required>
-		</label><br />
+		<div class='form-group'>
+			<label>
+				<span>Name</span>
+				<input id="nameField" class="form-control" type="text" name="name" value="<%= @name %>" autofocus required>
+			</label><br />
 
-		<label>
-			<span>Email</span>
-			<input type="email" name="email" value="<%= @email %>" required>
-		</label><br />
+			<label>
+				<span>Email</span>
+				<input class="form-control" type="email" name="email" value="<%= @email %>" required>
+			</label><br />
 
-		<label>
-			<span>Phone</span>
-			<input type="text" name="phone" value="<%= @phone %>">
-		</label><br />
+			<label>
+				<span>Phone</span>
+				<input class="form-control" type="text" name="phone" value="<%= @phone %>">
+			</label><br />
+		</div>
 	</form>
 </div>
 
