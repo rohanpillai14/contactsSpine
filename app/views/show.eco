@@ -1,10 +1,12 @@
 <header>
-	<a class="edit">Edit</a>
-	<a class="delete">Delete</a>
+	<a class="back buttons">Back</a>
+	<span class="separator"></span>
+	<a class="edit buttons">Edit</a>
+	<a class="delete buttons">Delete</a>
 </header>
 
 <div class="content">
-	<p><strong>Name: </strong><%= @name %></p>
-	<p><strong>Email: </strong><%= @email %></p>
-	<p><strong>Phone: </strong><%= @phone %></p>
+	<p><strong>Name: </strong><br /><%= @name %></p>
+	<p><strong>Email: </strong><br /><%= @email %></p>
+	<p><strong>Phone: </strong><br /><%= @phone %></p>
 </div>

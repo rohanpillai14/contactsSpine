@@ -47,14 +47,19 @@ class Sidebar extends Spine.Controller
     contacts = Contact.filter(@query)
     @list.render(contacts)
 
+  flip: ->
+    if $(window).width() <= 520
+      $(".main").css({"z-index": 20})
+
   clicked: (e) ->
     $(e.target).addClass("selected")
+    @flip()
 
   change: (item) =>
     @navigate '/contacts', item.id
 
   create: ->
-    @query = ""
+    @flip()
     @navigate('/contacts/new')
 
   createGateway: =>

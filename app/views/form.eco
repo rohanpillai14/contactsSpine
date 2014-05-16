@@ -3,17 +3,17 @@
 		<label>
 			<span>Name</span>
 			<input id="nameField" type="text" name="name" value="<%= @name %>" autofocus required>
-		</label>
+		</label><br />
 
 		<label>
 			<span>Email</span>
 			<input type="email" name="email" value="<%= @email %>" required>
-		</label>
+		</label><br />
 
 		<label>
 			<span>Phone</span>
 			<input type="text" name="phone" value="<%= @phone %>">
-		</label>
+		</label><br />
 	</form>
 </div>
 

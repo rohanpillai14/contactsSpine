@@ -9,6 +9,7 @@ class Show extends Spine.Controller
 	events:
 		'click .edit' : 'edit'
 		'click .delete': 'delete'
+		'click .back' : 'flip'
 
 	constructor: ->
 		super
@@ -29,8 +30,14 @@ class Show extends Spine.Controller
 		@navigate('/contacts', @item.id, 'edit')
 
 	delete: ->
-		@item.destroy() if confirm('Are you sure?')
+		if confirm('Are you sure?')
+			@item.destroy()
+			@flip()
 		@navigate('/contacts', Contact.first().id)
+
+	flip: ->
+		if $(window).width() <= 520
+			$(".main").css({"z-index": -1})
 
 class Edit extends Spine.Controller
 	className: 'edit'
@@ -72,6 +79,8 @@ class Edit extends Spine.Controller
 		@navigate('/contacts', @item.id)
 
 	cancel: ->
+		if $(window).width() <= 520
+			$(".main").css({"z-index": -1})
 		@navigate('/contacts', Contact.first().id)
 	
 

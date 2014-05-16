@@ -21,53 +21,60 @@ p
 .stack > *:not(.active) 
 	display:none
 
-header#mainHeader
-	display:inline-block
-	position: absolute
-	top:0
-	width:100%
-	height:80px
-	vbg-gradient(#ddddff, #ffffee)
-	text-align: center
-
-	h1
-		position: relative
-		top:5px
-		font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial"
-		font-weight: 100
-		z-index:2
 
 article#main
 	display:inline-block
 	width:100%
-	position:absolute
-	top:80px
-	bottom:0
+	height: 100%
 	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial"
 	font-weight: 100
 
+	.buttons
+		&:hover, &:active
+			text-decoration: none
+
 	.sidebar
+		position:absolute
+		top:0
 		display:inline-block
 		background:#eeeeee
-		width:19.75%
-		position:absolute
+		width:480px
 		height:100%
 		overflow-y:auto
+		overflow-x:hidden
+		border-right: 2px solid #777777
+
+		@media (max-width: 520px)
+			width:100%
+
+		@media (min-width: 520px) and (max-width: 768px)
+			width: 40%
 
 		#searchbar
 			position:fixed
-			width:19.75%
+			width:480px
 			font-size:1.1em
 			padding:0.3em
 			font-family:inherit
 			z-index:3
+			border:1px solid #cccccc
+
+			@media (max-width: 520px)
+				width:100%
+
+			@media (min-width: 520px) and (max-width: 768px)
+				width: 40%
 
 		.items
 			position:relative
 			width:100%
-			top:40px
+			top:45px
 			padding-bottom:60px
 			z-index:2
+			font-size: 1.1em
+
+			@media (max-width: 520px)
+				width:100%
 
 		.item
 			border-bottom:1px solid #cccccc
@@ -88,32 +95,41 @@ article#main
 		footer
 			position:fixed
 			bottom:0
-			width:19.75%
+			width:480px
 			z-index:3
+			
+
+			@media (max-width: 520px)
+				width:100%
+
+			@media (min-width: 520px) and (max-width: 768px)
+				width: 40%
 
 			button
 				width:100%
 				background-color:#4444ff
 				color:#ffffff
-				font-family:inherit
-				font-size:1.05em
 				padding:0.45em
-
-	.vdivide
-		display:inline-block
-		position:absolute
-		left:19.75%
-		width:0.5%
-		height:100%
-		background-color:#bbbbbb
+				font-family:inherit
+				font-size:1.1em
 
 
 	.main
 		display:inline-block
 		position:absolute
-		left:20.25%
+		top:0
+		left:480px
 		right:0
 		height:100%
+		background-color: #ffffff
+		border-left:2px solid #777777
+
+		@media (max-width: 520px)
+			left: 0
+			z-index: 20
+
+		@media (min-width: 520px) and (max-width: 768px)
+			left: 40%
 
 		.show
 			text-align:left
@@ -122,26 +138,55 @@ article#main
 				background-color:#eeeeee
 				border:1px solid #ccccff
 
-				.edit, .delete
+				.buttons
 					display:inline-block
 					padding:5px
-					background-color:#5555ff
+					margin-left: 5px
+					background:#5555ff
 					border:1px solid #999999
 					color:#ffffff
+					min-width:100px
+					text-align: center
 
 					&:hover
-						background-color:#9999ff
+						background-color:rgba(0,0,0,0.8)
 						cursor:pointer
 
-			.content p
-				text-align:left
-				margin-left:20px
+					@media (max-width: 520px)
+						width: 25%
+
+					@media (min-width: 520px) and (max-width: 768px)
+						width: 40%
+
+
+				.delete
+					background-color: #ff5555
+
+				@media (min-width: 520px) 
+					.back, .separator
+						display: none
+
+				.separator
+					display: inline-block
+					margin-left: 5px
+					margin-right: 5px
+					height: 100%
+					width:1px
+					background-color: #333333
+
+			.content
+				margin-top:20px
+
+				p
+					text-align:left
+					margin-left:20px
+					margin-top:20px
 			
 		.edit
 			.buttons
 				display:inline-block
 				padding:5px
-				background-color:#9999ff
+				background-color:#5555ff
 				border:1px solid #9999ff
 				color:#ffffff
 				margin:20px 0 20px 20px
@@ -153,6 +198,11 @@ article#main
 
 			form
 				margin:20px
-				
 
+				label
+					margin-bottom:10px
+					margin-right:10px
+
+					input
+						width: 200px
 
