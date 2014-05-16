@@ -31,14 +31,13 @@ class Sidebar extends Spine.Controller
     # Fetch the list of contacts from the server
     Contact.fetch({}, {clear:true})
 
-    console.dir(Contact)
-
     @active (params) -> 
       @list.change(Contact.find(params.id))
       $(".items .item").removeClass("selected")
       $("#" + params.id).addClass("selected")
 
     Contact.bind('refresh change', @render)
+    Contact.bind("create", @createGateway)
 
   filter: ->
     @query = @search.val()
@@ -55,7 +54,24 @@ class Sidebar extends Spine.Controller
     @navigate '/contacts', item.id
 
   create: ->
+    @query = ""
     @navigate('/contacts/new')
+
+  createGateway: =>
+    Contact.bind("ajaxSuccess", @afterCreate)
+    
+  ###
+  Callback function that creates and saves copy of the newly created contact locally, and deletes 
+  the old version with the local id
+  ###
+  afterCreate: (status, xhr) =>
+    if xhr.id
+      if current = Contact.find(xhr.id)
+        localID = current.id
+        current.updateAttribute("id", current["_id"], {ajax: false})
+        Contact.destroy(localID, { ajax: false})
+        Contact.unbind("ajaxSuccess")
+        @navigate('/contacts', current.id)
 
 
 module.exports = Sidebar

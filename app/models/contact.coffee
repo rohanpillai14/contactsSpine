@@ -10,11 +10,12 @@ class Contact extends Spine.Model
 		"Email is needed in the format xyz@domain.com" unless /\b[a-z,0-9]+\@[a-z,0-9]{3,}\.[a-z,0-9]{2,3}\b/.test(@email)
 
 
+	# Implement AJAX support
+	@extend Spine.Model.Ajax
+
 	# Persist with Local Storage
 	@extend Spine.Model.Local
 
-	# Implement AJAX support
-	@extend Spine.Model.Ajax
 
 	Spine.Model.host = "http://localhost:3000"
 
